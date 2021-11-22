@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +10,120 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="HW8_ImageChanged" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Cc-NX-bpZ">
+                                <rect key="frame" x="41.5" y="74" width="331" height="224"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="PNk-TW-30Q" appends="YES" id="q9n-Nw-RSn"/>
+                                    <outletCollection property="gestureRecognizers" destination="9kD-VV-MDU" appends="YES" id="dvX-2B-oem"/>
+                                    <outletCollection property="gestureRecognizers" destination="QK8-7E-TUW" appends="YES" id="kPn-bQ-Up4"/>
+                                </connections>
+                            </imageView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Cjg-lC-9A0">
+                                <rect key="frame" x="119" y="358.5" width="176" height="32"/>
+                                <segments>
+                                    <segment title="造型一"/>
+                                    <segment title="造型二"/>
+                                    <segment title="造型三"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="Zjv-tI-4CA"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFJ-XW-esg">
+                                <rect key="frame" x="186.5" y="318" width="41.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="TuT-sA-UYQ">
+                                <rect key="frame" x="149" y="409.5" width="116" height="31"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zWg-ER-jes">
+                                        <rect key="frame" x="0.0" y="0.0" width="45.5" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="arrowshape.turn.up.left.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="clickBack:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Yhi-oz-JQs"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3F3-Hx-8eN">
+                                        <rect key="frame" x="70.5" y="0.0" width="45.5" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="arrowshape.turn.up.right.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="clickNext:" destination="BYZ-38-t0r" eventType="touchUpInside" id="THd-Ud-kSD"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Fuv-aR-MKW">
+                                <rect key="frame" x="129.5" y="460.5" width="155.5" height="26"/>
+                                <connections>
+                                    <action selector="pageValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="fYj-xQ-9ae"/>
+                                </connections>
+                            </pageControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="utc-IV-MaZ">
+                                <rect key="frame" x="186.5" y="506.5" width="41.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" red="0.75554779692963292" green="0.78152828616695802" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="TuT-sA-UYQ" firstAttribute="top" secondItem="Cjg-lC-9A0" secondAttribute="bottom" constant="20" id="4Ni-j3-XOj"/>
+                            <constraint firstItem="utc-IV-MaZ" firstAttribute="top" secondItem="Fuv-aR-MKW" secondAttribute="bottom" constant="20" id="4dR-5f-mA6"/>
+                            <constraint firstItem="Fuv-aR-MKW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7fM-AK-Ff5"/>
+                            <constraint firstItem="TuT-sA-UYQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ARu-ce-LWz"/>
+                            <constraint firstItem="0Cc-NX-bpZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="Bk0-eD-WIl"/>
+                            <constraint firstItem="KFJ-XW-esg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Shw-Xm-9SG"/>
+                            <constraint firstItem="0Cc-NX-bpZ" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:4" id="U4w-Xd-gGn"/>
+                            <constraint firstItem="0Cc-NX-bpZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dMU-nr-TSZ"/>
+                            <constraint firstItem="Cjg-lC-9A0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="f5b-fG-UdV"/>
+                            <constraint firstItem="0Cc-NX-bpZ" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8:1" id="fki-dW-IJg"/>
+                            <constraint firstItem="utc-IV-MaZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nWI-I9-lxC"/>
+                            <constraint firstItem="Cjg-lC-9A0" firstAttribute="top" secondItem="KFJ-XW-esg" secondAttribute="bottom" constant="20" id="ooK-0U-dTl"/>
+                            <constraint firstItem="Fuv-aR-MKW" firstAttribute="top" secondItem="TuT-sA-UYQ" secondAttribute="bottom" constant="20" id="ooz-5H-iAp"/>
+                            <constraint firstItem="KFJ-XW-esg" firstAttribute="top" secondItem="0Cc-NX-bpZ" secondAttribute="bottom" constant="20" id="rbx-vk-3VL"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="ivImage" destination="0Cc-NX-bpZ" id="4Js-f6-nkp"/>
+                        <outlet property="lbName" destination="KFJ-XW-esg" id="bkF-l2-oml"/>
+                        <outlet property="lbPage" destination="utc-IV-MaZ" id="60F-bv-nyp"/>
+                        <outlet property="pcPage" destination="Fuv-aR-MKW" id="O5y-Bq-BJD"/>
+                        <outlet property="scSegmented" destination="Cjg-lC-9A0" id="PiT-Pn-Wy1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="PNk-TW-30Q">
+                    <connections>
+                        <action selector="swipeRight:" destination="BYZ-38-t0r" id="ozt-7F-fcB"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="9kD-VV-MDU">
+                    <connections>
+                        <action selector="swipeLeft:" destination="BYZ-38-t0r" id="Hgw-ck-ShC"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="QK8-7E-TUW">
+                    <connections>
+                        <action selector="longPress:" destination="BYZ-38-t0r" id="0ZJ-Dr-rA0"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="20" y="80"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="arrowshape.turn.up.left.fill" catalog="system" width="128" height="106"/>
+        <image name="arrowshape.turn.up.right.fill" catalog="system" width="128" height="106"/>
+    </resources>
 </document>
